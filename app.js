@@ -23,7 +23,7 @@ fetch('https://interview.adpeai.com/api/v1/get-task')
   .then(function (myResult) {
     console.log(myResult);
     let postBody = {id: myID, result: myResult};
-    postResult('https://interview.adpeai.com/api/v1/submit-task', postBody);
+    postResult('https://interview.adpeai.com/api/v1/submit-task', JSON.stringify(postBody));
   })
 
 /* POST result of the calculation */
