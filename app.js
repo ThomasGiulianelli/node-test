@@ -21,7 +21,7 @@ fetch('https://interview.adpeai.com/api/v1/get-task')
     return calculateResult(operationRequested, leftOperand, rightOperand);
   })
   .then(function (myResult) {
-    console.log(myResult);
+    console.log("Result of " + operationRequested + ": " + myResult);
     let postBody = {id: myID, result: myResult};
     postResult('https://interview.adpeai.com/api/v1/submit-task', JSON.stringify(postBody));
   })
@@ -35,9 +35,8 @@ function postResult(url = '', data = {}) {
       'Content-Type': 'application/json'
     }
   }).then(function(response) {
-    console.log(response.status);
     if (response.status == 200) {
-      console.log("Success:" + JSON.stringify(response));
+      console.log("Success: " + JSON.stringify(response));
     }
     else if (response.status == 400) {
       throw new Error("Incorrect value in result / No ID specified / Value is invalid");
@@ -46,7 +45,7 @@ function postResult(url = '', data = {}) {
       throw new Error("ID cannot be found");
     }
   }).catch(function(error) {
-    console.log("Error:" + error.message);
+    console.log("Error: " + error.message);
   })
 }
 
