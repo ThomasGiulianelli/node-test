@@ -35,10 +35,22 @@ function postResult(url = '', data = {}) {
       'Content-Type': 'application/json'
     }
   }).then(function(response) {
-    console.log("Success:" + JSON.stringify(response))
-  }).catch(error => console.log("Error:" + error))
+    console.log(response.status);
+    if (response.status == 200) {
+      console.log("Success:" + JSON.stringify(response));
+    }
+    else if (response.status == 400) {
+      throw new Error("Incorrect value in result / No ID specified / Value is invalid");
+    }
+    else if (response.status == 500) {
+      throw new Error("ID cannot be found");
+    }
+  }).catch(function(error) {
+    console.log("Error:" + error.message);
+  })
 }
 
+/* Executes the requested operation on two numbers */
 function calculateResult(operation, left, right) {
   let result;
 
