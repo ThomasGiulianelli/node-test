@@ -1,0 +1,23 @@
+{
+  "name": "node-test",
+  "version": "1.0.0",
+  "description": "GETs tasks from an api and POSTs the result",
+  "main": "app.js",
+  "dependencies": {
+    "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasGiulianelli/node-test.git"
+  },
+  "author": "Thomas Giulianelli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomasGiulianelli/node-test/issues"
+  },
+  "homepage": "https://github.com/ThomasGiulianelli/node-test#readme"
+}
