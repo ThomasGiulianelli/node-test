@@ -20,13 +20,28 @@ fetch('https://interview.adpeai.com/api/v1/get-task')
     rightOperand = jsonData.right;
     return calculateResult(operationRequested, leftOperand, rightOperand);
   })
-  .then(function (result) {
-    console.log(result);
+  .then(function (myResult) {
+    console.log(myResult);
+    let postBody = {id: myID, result: myResult};
+    postResult('https://interview.adpeai.com/api/v1/submit-task', postBody);
   })
+
+/* POST result of the calculation */
+function postResult(url = '', data = {}) {
+  return fetch(url, {
+    method: 'POST',
+    body: data,
+    headers:{
+      'Content-Type': 'application/json'
+    }
+  }).then(function(response) {
+    console.log("Success:" + JSON.stringify(response))
+  }).catch(error => console.log("Error:" + error))
+}
 
 function calculateResult(operation, left, right) {
   let result;
-  
+
   switch(operation) {
     case "addition" : 
       result = left + right;
