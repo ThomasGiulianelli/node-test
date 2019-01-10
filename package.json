@@ -1,7 +1,7 @@
 {
   "name": "node-test",
   "version": "1.0.0",
-  "description": "GETs tasks from an api and POSTs the result",
+  "description": "GETs tasks from an api and POSTs the results",
   "main": "app.js",
   "dependencies": {
     "node-fetch": "^2.3.0"
